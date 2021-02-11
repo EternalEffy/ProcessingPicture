@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import static java.awt.Color.YELLOW;
+
+
 public class EFFY_ProcessingPicture {
     private int height;
     private int width;
@@ -26,6 +29,7 @@ public class EFFY_ProcessingPicture {
         this.sizeMatrix = height*width*pixelBits;
         this.resolutionOfMatrix = height*width;
         this.fileName = fileName;
+        this.picture = picture;
         }
 
 
@@ -56,12 +60,13 @@ public class EFFY_ProcessingPicture {
         }
     }
 
-    public void changePixel(Color yourColor, int x, int y){
-        picture.setRGB(x,y,yourColor.getRGB());
+    public void changePixel(Color YELLOW,int x, int y){
+        int yellow = YELLOW.getRGB();
+        picture.setRGB(x,y,yellow);
     }
 
-    public void colorOfPixel(int x, int y){
-       picture.getRGB(x,y);
+    public Color colorOfPixel(int x, int y){
+        return new Color(picture.getRGB(x,y));
     }
 
 }
