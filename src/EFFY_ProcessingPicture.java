@@ -10,6 +10,8 @@ public class EFFY_ProcessingPicture {
     private String fileName;
     private BufferedImage picture;
     private int pixelBits;
+    private long sizeMatrix;
+    private long resolutionOfMatrix;
 
 
     public void loadPicture(String fileName){
@@ -21,6 +23,8 @@ public class EFFY_ProcessingPicture {
         }
         this.height = picture.getHeight();
         this.width  = picture.getWidth();
+        this.sizeMatrix = height*width*pixelBits;
+        this.resolutionOfMatrix = height*width;
         this.fileName = fileName;
         }
 
@@ -31,11 +35,11 @@ public class EFFY_ProcessingPicture {
         }
 
         public long resolutionOfMatrix(){
-        return height*width;
+        return resolutionOfMatrix;
         }
 
         public long sizeOfMatrix(){
-        return height*width*pixelBits;
+        return sizeMatrix;
         }
 
         int returnHeight(){
@@ -56,9 +60,9 @@ public class EFFY_ProcessingPicture {
         picture.setRGB(x,y,yourColor.getRGB());
     }
 
-    /*public int colorOfPixel(int x, int y){
-       return picture.(picture.getRGB(x,y));
-    }*/
+    public void colorOfPixel(int x, int y){
+       picture.getRGB(x,y);
+    }
 
 }
 
