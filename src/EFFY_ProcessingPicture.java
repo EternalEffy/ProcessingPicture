@@ -1,12 +1,9 @@
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.IOException;
 
-import static java.awt.Color.YELLOW;
-import static java.awt.Color.pink;
+
 
 
 public class EFFY_ProcessingPicture {
@@ -14,7 +11,6 @@ public class EFFY_ProcessingPicture {
     private int width;
     private String fileName;
     private BufferedImage picture;
-    private int pixelBits;
     private long resolutionOfMatrix;
 
 
@@ -34,8 +30,7 @@ public class EFFY_ProcessingPicture {
         }
 
         public int сolorDepth() {
-        this.pixelBits=picture.getColorModel().getPixelSize();;
-        return pixelBits;
+        return picture.getColorModel().getPixelSize();
         }
 
         public long resolutionOfMatrix(){
@@ -43,8 +38,7 @@ public class EFFY_ProcessingPicture {
         }
 
         public long sizeOfMatrix(){
-        int size = height*width*pixelBits;
-        return size;
+        return height*width*(resolutionOfMatrix());
         }
 
         int returnHeight(){
