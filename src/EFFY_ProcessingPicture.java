@@ -22,24 +22,20 @@ public class EFFY_ProcessingPicture {
         this.height = picture.getHeight();
         this.width  = picture.getWidth();
         this.fileName = fileName;
-        this.picture = picture;
         }
 
 
         public int сolorDepth() {
-        int pixelBits = picture.getColorModel().getPixelSize();
-        this.pixelBits=pixelBits;
+        this.pixelBits=picture.getColorModel().getPixelSize();;
         return pixelBits;
         }
 
         public long resolutionOfMatrix(){
-        long resolution = height*width;
-        return resolution;
+        return height*width;
         }
 
         public long sizeOfMatrix(){
-        long size = height*width*pixelBits;
-        return size;
+        return height*width*pixelBits;
         }
 
         int returnHeight(){
@@ -57,14 +53,12 @@ public class EFFY_ProcessingPicture {
     }
 
     public void changePixel(Color yourColor, int x, int y){
-        int color = yourColor.getRGB();
-        picture.setRGB(x,y,color);
+        picture.setRGB(x,y,yourColor.getRGB());
     }
 
-    public Color colorOfPixel(int x,int y){
-        Color color = new Color(picture.getRGB(x,y));
-       return color;
-    }
+    /*public int colorOfPixel(int x, int y){
+       return picture.(picture.getRGB(x,y));
+    }*/
 
 }
 

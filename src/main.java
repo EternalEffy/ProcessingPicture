@@ -10,7 +10,7 @@ public class main {
     System.out.println("Введите название файла изображения:");
         Scanner console = new Scanner(System.in);
         picture.loadPicture(console.nextLine());
-        System.out.println(picture.colorOfPixel(100,100));
+       /* System.out.println(picture.colorOfPixel(100,100));
 
 
         for(int y=0;y<picture.returnHeight();y++){
@@ -19,7 +19,7 @@ public class main {
                         picture.changePixel(Color.YELLOW,x,y);
                 }
             }
-        }
+        }*/
 
         picture.writePicture();
 
