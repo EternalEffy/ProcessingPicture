@@ -1,10 +1,12 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.IOException;
 
 import static java.awt.Color.YELLOW;
+import static java.awt.Color.pink;
 
 
 public class EFFY_ProcessingPicture {
@@ -13,8 +15,8 @@ public class EFFY_ProcessingPicture {
     private String fileName;
     private BufferedImage picture;
     private int pixelBits;
-    private long sizeMatrix;
     private long resolutionOfMatrix;
+
 
 
     public void loadPicture(String fileName){
@@ -26,12 +28,10 @@ public class EFFY_ProcessingPicture {
         }
         this.height = picture.getHeight();
         this.width  = picture.getWidth();
-        this.sizeMatrix = height*width*pixelBits;
         this.resolutionOfMatrix = height*width;
         this.fileName = fileName;
         this.picture = picture;
         }
-
 
         public int сolorDepth() {
         this.pixelBits=picture.getColorModel().getPixelSize();;
@@ -43,7 +43,8 @@ public class EFFY_ProcessingPicture {
         }
 
         public long sizeOfMatrix(){
-        return sizeMatrix;
+        int size = height*width*pixelBits;
+        return size;
         }
 
         int returnHeight(){
@@ -60,13 +61,13 @@ public class EFFY_ProcessingPicture {
         }
     }
 
-    public void changePixel(Color YELLOW,int x, int y){
-        int yellow = YELLOW.getRGB();
-        picture.setRGB(x,y,yellow);
+    public void setPixel(int yourColor,int x, int y){
+        picture.setRGB(x,y,yourColor);
+
     }
 
-    public Color colorOfPixel(int x, int y){
-        return new Color(picture.getRGB(x,y));
+    public int colorOfPixel(int x, int y){
+        return picture.getRGB(x,y);
     }
 
 }

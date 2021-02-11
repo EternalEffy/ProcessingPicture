@@ -11,26 +11,20 @@ public class main {
         Scanner console = new Scanner(System.in);
         picture.loadPicture(console.nextLine());
 
-        System.out.println(picture.colorOfPixel(100,100));
-        System.out.println(Color.RED);
-        for(int x=0;x< picture.returnWidth();x++){
+        /*for(int x=0;x< picture.returnWidth();x++){
             for (int y=0;y< picture.returnHeight();y++){
                 picture.changePixel(Color.YELLOW,x,y);
             }
-        } //так РАБОТАЕТ
+        }*/
 
-
-       // picture.changePixel(Color.YELLOW,100,100);
-       /* for(int y=0;y<picture.returnHeight();y++){
-            for (int x=0;x< picture.returnWidth();x++){
-                if(picture.colorOfPixel(x,y).equals(Color.RED)){
-                    picture.changePixel(Color.YELLOW,x,y);
+       for(int y=0;y<picture.returnHeight();y++){
+            for (int x=0;x< picture.returnWidth();x++)
+                if (picture.colorOfPixel(x, y) == -131072) {
+                    picture.setPixel(0x00FFFF00, x, y);
                 }
-                }
-            }ТАК НЕ РАБОТАЕТ */
+            }
 
-        System.out.println(picture.colorOfPixel(100,100));
-
+       ;
         picture.writePicture();
         System.out.println(picture.returnHeight());
         System.out.println(picture.returnWidth());
